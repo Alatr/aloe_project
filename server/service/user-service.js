@@ -1,7 +1,7 @@
 import UserModel from "../models/user-model.js";
 import bcrypt from "bcrypt";
-import uuid from "uuid";
-import MailService from "./mail-service";
+import { v4 } from "uuid";
+import MailService from "./mail-service.js";
 import tokenService from "./token-service.js";
 import UserDto from "../dtos/user-dto.js";
 
@@ -12,7 +12,7 @@ class UserService {
       throw new Error(`User with email ${email} already exist`);
     }
     const hashPassword = await bcrypt.hash(password, 3);
-    const activationLink = uuid.v4();
+    const activationLink = v4();
     const user = await UserModel.create({
       email,
       password: hashPassword,
@@ -21,10 +21,9 @@ class UserService {
     await MailService.sandActivationMail(email, activationLink);
 
     const userDto = new UserDto(user);
-    const tokens = tokenService.generateTokens(...userDto);
+    const tokens = tokenService.generateTokens({ ...userDto });
 
     await tokenService.saveToken(userDto.id, tokens.refreshToken);
-
     return {
       ...tokens,
       user: userDto,

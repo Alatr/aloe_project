@@ -1,11 +1,11 @@
 import cookie from "cookie";
-import userService from "../service/user-service";
+import userService from "../service/user-service.js";
 
 class UserController {
   async registration(req, res, next) {
     try {
       const { email, password } = req.body;
-      const userData = userService.registration(email, password);
+      const userData = await userService.registration(email, password);
       res.cookie("refreshToken", userData.refreshToken, {
         maxAge: 30 * 24 * 60 * 60 * 1000,
         httpOnly: true,
