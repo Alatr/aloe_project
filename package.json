@@ -10,6 +10,7 @@
   "scripts": {
     "server": "npm run server/index.js",
     "client": "npm run start --prefix client",
+    "build": "npx webpack --mode production"
   },
   "repository": {
     "type": "git",
