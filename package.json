@@ -8,7 +8,9 @@
     "node": "14.x"
   },
   "scripts": {
-    "start": "heroku local -f Procfile.dev"
+    "server": "npm run server/index.js",
+    "client": "npm run start --prefix client",
+    "build": "npm run build --prefix client"
   },
   "repository": {
     "type": "git",
@@ -43,7 +45,5 @@
     "nodemon": "^2.0.12",
     "uuid": "^8.3.2"
   },
-  "devDependencies": {
-    "webpack-cli": "^4.8.0"
-  }
+  "devDependencies": {}
 }
