@@ -5,10 +5,10 @@ start:
 	heroku local -f Procfile.dev
 
 start-backend:
-	npx nodemon bin/slack.js
+	npx nodemon server/index.js
 
 start-frontend:
-	npx webpack serve
+	npm run start --prefix client
 
 install-deps:
 	npm ci
