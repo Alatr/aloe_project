@@ -1,5 +1,5 @@
 {
-  "name": "@hexlet/code",
+  "name": "Aloe",
   "version": "0.0.1",
   "description": "this project presents a simplified analogue version of slask chat",
   "main": "src/init.jsx",
@@ -10,7 +10,8 @@
   "scripts": {
     "server": "npm run server/index.js",
     "client": "npm run start --prefix client",
-    "build": "npx webpack --mode production"
+    "build": "npm run build --prefix client",
+    "heroku-postbuild": "echo Skip build on Heroku"
   },
   "repository": {
     "type": "git",
@@ -45,5 +46,6 @@
     "nodemon": "^2.0.12",
     "uuid": "^8.3.2"
   },
-  "devDependencies": {}
+  "devDependencies": {},
+  "heroku-run-build-script": true
 }
