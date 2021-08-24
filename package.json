@@ -8,10 +8,13 @@
     "node": "14.x"
   },
   "scripts": {
-    "test": "jest --colors",
-    "prebuild": "rm -rf dist",
-    "build": "NODE_ENV=production npx webpack --mode production",
-    "start": "npx nodemon server/index.js"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "cd client && npm run build",
+    "install-client": "cd client && npm install",
+    "heroku-postbuild": "npm run install-client && npm run build",
+    "start": "make start",
+    "client": "cd client && npm start",
+    "dev": "make start"
   },
   "repository": {
     "type": "git",
