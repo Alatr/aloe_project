@@ -11,7 +11,6 @@
     "server": "npm run server/index.js",
     "client": "npm run start --prefix client",
     "build": "npm run build --prefix client",
-    "heroku-postbuild": "echo Skip build on Heroku"
   },
   "repository": {
     "type": "git",
