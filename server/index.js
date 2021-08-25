@@ -22,6 +22,11 @@ const start = async () => {
       useNewUrlParser: true,
       useUnifiedTopology: true,
     });
+
+    mongoose.connection.on('connected', () => {
+      console.log('Mongoose is connected!!!!');
+    });
+
     app.listen(PORT, () => console.log(`Server started on PORT: ${PORT} http://localhost:${PORT}`));
   } catch (error) {
     console.log(`Start error: ${error}`);
