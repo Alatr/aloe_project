@@ -1,9 +1,13 @@
 import App from './App.jsx';
+import Header from './components/Header.jsx';
 
 export default () => {
   return (
-    <main className='main'>
-      <App />
-    </main>
+    <>
+      <Header />
+      <main className='main'>
+        <App />
+      </main>
+    </>
   );
 };
